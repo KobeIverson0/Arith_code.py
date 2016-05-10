@@ -37,9 +37,7 @@ if len(fname) == 0:
 	
 fhand = open(fname, 'r')
 
-text = ''
-for i in fhand:
-	text = text + i
+text = fhand.read()
 
 dictionary = {}
 for i in text:
@@ -66,7 +64,7 @@ res = ''
 for i in text:
 	l, u = l + (u - l + 1) * dic[i][0] / length, l + (u - l + 1) * dic[i][1] / length - 1	#计算上下限
 	l = '0' * (m + 2 - len(bin(l))) + bin(l)[2: ]
-	u = '0' * (m + 2 - len(bin(u))) + bin(u)[2: ]	#	将 l、 u 二进制化
+	u = '0' * (m + 2 - len(bin(u))) + bin(u)[2: ]			#	将 l、 u 二进制化
 	#print l, u, int(l, 2), int(u, 2)
 	while (l[0] == u[0] or (l[:2] == '01' and u[: 2] == '10')):
 		if l[0] == u[0]:
