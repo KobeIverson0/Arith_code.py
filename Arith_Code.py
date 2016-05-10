@@ -44,18 +44,18 @@ for i in fhand:
 dictionary = {}
 for i in text:
 	if i not in dictionary.keys():
-		dictionary[i] = text.count(i)		#	dictionary formed
+		dictionary[i] = text.count(i)				#	dictionary formed
 
 length = len(text)
 
 lower = 0
 
-dic = {}									#	需要被传导的字典
+dic = {}								#	需要被传导的字典
 for i in dictionary:
 	dic[i] = [lower, lower + dictionary[i]]
 	lower = lower + dictionary[i]
 
-m = 3 + int(math.log(length, 2))			# 	m = 编码位数
+m = 3 + int(math.log(length, 2))					# 	m = 编码位数
 
 l = 0
 u = 2 ** m - 1
@@ -77,10 +77,10 @@ for i in text:
 			#print l, u, int(l, 2), int(u, 2)
 			if (scale3 > 0):
 				res = res + str(b ^ 1) * scale3		#	发送 b 的补码
- 				scale3 = 0			#	递减scale3
- 		else:								#	满足E3条件
+ 				scale3 = 0				#	递减scale3
+ 		else:							#	满足E3条件
  			l = '0' + l[2: ]  + '0'
- 			u = '1' + u[2: ] + '1'			#	左移并高位取反
+ 			u = '1' + u[2: ] + '1'				#	左移并高位取反
  			scale3 = scale3 + 1
  			#print l, u, int(l, 2), int(u, 2)
  	l = int(l, 2)
